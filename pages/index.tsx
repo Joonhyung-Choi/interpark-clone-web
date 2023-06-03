@@ -1,10 +1,8 @@
 import type { NextPage } from "next";
-import styled from "styled-components";
+import MainPage from "../components/mainPage/MainPage";
 
 const Home: NextPage = () => {
-  return <div></div>;
+  return <MainPage></MainPage>;
 };
 
 export default Home;
-
-const Wrapper = styled.div``;
