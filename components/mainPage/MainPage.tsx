@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./components/Header/Header";
-import Contents from "./components/Contents";
+import Contents from "./components/Contents/Contents";
 import Footer from "./components/Footer";
 import styled from "styled-components";
 
@@ -18,5 +18,6 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
+  flex-direction: column;
   width: 100%;
 `;

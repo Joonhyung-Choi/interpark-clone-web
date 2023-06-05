@@ -17,7 +17,6 @@ export default function Header() {
 const Wrpper = styled.div`
   display: flex;
   justify-content: center;
-
   width: 100%;
   @media screen and (min-width: 1024px) {
     height: 160px;
@@ -28,14 +27,19 @@ const Wrpper = styled.div`
 `;
 
 const InnerWrapper = styled.div`
-  @media screen and (min-width: 1024px) {
-    width: 1024px;
-    height: 100%;
+  height: 100%;
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
     padding-top: 30px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+  @media screen and (min-width: 1024px) and (max-width: 1279px) {
+    width: 1024px;
+    padding-top: 30px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   }
   @media screen and (max-width: 1023px) {
     width: 760px;
-    height: 100%;
     border-bottom: 8px solid #f0f4f4;
   }
 `;

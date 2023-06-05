@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ["www.interpark.com"],
+    domains: ["www.interpark.com", "openimage.interpark.com"],
   },
 };
 
