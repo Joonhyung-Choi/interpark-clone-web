@@ -1,15 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import Search from "./Search";
+import InnerTopLeft from "./InnerTopLeft";
+import InnerTopRight from "./InnerTopRight";
 
 export default function HeaderInnerTop() {
   return (
     <Wrapper>
-      <HeaderInnerLeft>
-        <LeftLogoDiv />
-        <Search role={"pc"}></Search>
-      </HeaderInnerLeft>
-      <HeaderIneerRight></HeaderIneerRight>
+      <InnerTopLeft></InnerTopLeft>
+      <InnerTopRight></InnerTopRight>
     </Wrapper>
   );
 }

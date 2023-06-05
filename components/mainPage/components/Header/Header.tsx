@@ -1,12 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import HeaderInnerTop from "./components/HeaderInnerTop";
+import HeaderInnerBottom from "./components/HeaderInnerBottom";
 
 export default function Header() {
   return (
     <Wrpper>
       <InnerWrapper>
         <HeaderInnerTop></HeaderInnerTop>
+        <HeaderInnerBottom></HeaderInnerBottom>
       </InnerWrapper>
     </Wrpper>
   );
