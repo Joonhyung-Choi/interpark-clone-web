@@ -50,6 +50,11 @@ export default function InnerBottomNav() {
           </NavLi>
         ))}
       </NavUl>
+      <EventUl>
+        <EventLi>
+          <NavA>대한민국숙박세일페스타</NavA>
+        </EventLi>
+      </EventUl>
     </BottomNav>
   );
 }
@@ -61,7 +66,7 @@ const BottomNav = styled.nav`
 `;
 
 const NavUl = styled.ul`
-  display: fl;
+  display: flex;
 `;
 
 const NavLi = styled.li<{ isFirstElement: boolean }>`
@@ -82,5 +87,19 @@ const NavP = styled.p`
 
 const NavBadgeImage = styled(Image)<{ isBadgeElement: boolean }>`
   display: ${(props) => (props.isBadgeElement === true ? "" : "none")};
-  margin: 4px;
+  margin: 0 0 0 4px;
 `;
+
+const EventUl = styled.ul`
+  display: flex;
+  ::before {
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 16px;
+    margin: 0 12px;
+    background-color: #e9e9e9;
+  }
+`;
+
+const EventLi = styled.li``;
