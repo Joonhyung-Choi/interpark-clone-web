@@ -23,10 +23,10 @@ const Wrpper = styled.div`
     height: 160px;
   }
   @media screen and (max-width: 1023px) {
-    height: 174px;
+    height: 224px;
   }
   @media screen and (max-width: 767px) {
-    height: 174px;
+    height: 224px;
   }
 `;
 
