@@ -37,6 +37,15 @@ export default function InnerBottomNav() {
             <NavA>
               <Image src={item.src} width={30} height={30} alt="" />
               <NavP>{item.text}</NavP>
+              <NavBadgeImage
+                src={
+                  "https://www.interpark.com/_next/static/media/badge_hot.65abbe70.svg"
+                }
+                width={23}
+                height={16}
+                alt=""
+                isBadgeElement={index === 5 ? true : false}
+              ></NavBadgeImage>
             </NavA>
           </NavLi>
         ))}
@@ -69,4 +78,9 @@ const NavA = styled.a`
 const NavP = styled.p`
   margin: 0 0 0 6px;
   font-size: 16px;
+`;
+
+const NavBadgeImage = styled(Image)<{ isBadgeElement: boolean }>`
+  display: ${(props) => (props.isBadgeElement === true ? "" : "none")};
+  margin: 4px;
 `;
