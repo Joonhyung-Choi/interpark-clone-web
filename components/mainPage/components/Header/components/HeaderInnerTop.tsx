@@ -20,13 +20,6 @@ const Wrapper = styled.div`
   align-items: center;
   width: 100%;
   height: 50px;
-
-  @media screen and (min-width: 1024px) {
-  }
-  @media screen and (max-width: 1023px) {
-  }
-  @media screen and (max-width: 767px) {
-  }
 `;
 
 const MobileMypageButton = styled.button`

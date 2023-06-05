@@ -35,14 +35,15 @@ export default function InnerBottomNav() {
         {navItems.map((item, index) => (
           <NavLi key={index} isFirstElement={index === 0 ? true : false}>
             <NavA>
-              <Image src={item.src} width={30} height={30} alt="" />
+              <NavImage src={item.src} width={30} height={30} alt="" />
+              <MobileNavImage src={item.src} width={48} height={48} alt="" />
               <NavP>{item.text}</NavP>
               <NavBadgeImage
                 src={
                   "https://www.interpark.com/_next/static/media/badge_hot.65abbe70.svg"
                 }
                 width={23}
-                height={16}
+                height={15}
                 alt=""
                 isBadgeElement={index === 5 ? true : false}
               ></NavBadgeImage>
@@ -61,8 +62,13 @@ export default function InnerBottomNav() {
 
 const BottomNav = styled.nav`
   display: flex;
-  justify-content: left;
   align-items: center;
+  @media screen and (min-width: 1024px) {
+    justify-content: left;
+  }
+  @media screen and (max-width: 1023px) {
+    margin: 0 auto;
+  }
 `;
 
 const NavUl = styled.ul`
@@ -70,28 +76,65 @@ const NavUl = styled.ul`
 `;
 
 const NavLi = styled.li<{ isFirstElement: boolean }>`
-  height: 30px;
-  margin-left: ${(props) => (props.isFirstElement === true ? "" : "22px")};
+  @media screen and (min-width: 1024px) {
+    height: 30px;
+    margin-left: ${(props) => (props.isFirstElement === true ? "" : "22px")};
+  }
+  @media screen and (max-width: 1023px) {
+    height: 68px;
+    margin-left: ${(props) => (props.isFirstElement === true ? "" : "18px")};
+  }
 `;
 
 const NavA = styled.a`
   display: flex;
   align-items: center;
   cursor: pointer;
+  position: relative;
+  @media screen and (max-width: 1023px) {
+    flex-direction: column;
+  }
 `;
 
 const NavP = styled.p`
-  margin: 0 0 0 6px;
-  font-size: 16px;
+  @media screen and (min-width: 1024px) {
+    margin: 0 0 0 6px;
+    font-size: 16px;
+  }
+  @media screen and (max-width: 1023px) {
+    margin: 6px 0 0 0;
+    font-size: 12px;
+  }
 `;
 
+const NavImage = styled(Image)`
+  @media screen and (max-width: 1023px) {
+    display: none;
+  }
+`;
+const MobileNavImage = styled(Image)`
+  @media screen and (min-width: 1024px) {
+    display: none;
+  }
+`;
 const NavBadgeImage = styled(Image)<{ isBadgeElement: boolean }>`
   display: ${(props) => (props.isBadgeElement === true ? "" : "none")};
   margin: 0 0 0 4px;
+  @media screen and (max-width: 1023px) {
+    position: absolute;
+    top: 33px;
+    right: 0;
+  }
 `;
 
 const EventUl = styled.ul`
-  display: flex;
+  @media screen and (min-width: 1024px) {
+    display: flex;
+  }
+  @media screen and (max-width: 1023px) {
+    display: none;
+  }
+
   ::before {
     content: "";
     display: inline-block;

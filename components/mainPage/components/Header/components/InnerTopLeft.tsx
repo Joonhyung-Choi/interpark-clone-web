@@ -23,19 +23,19 @@ const HeaderInnerLeft = styled.div`
 `;
 
 const LeftLogoDiv = styled.div`
-  background: url(https://www.interpark.com/_next/static/media/ci.4836710e.svg)
+  background: url(https://www.interpark.com/_next/static/media/ci_ko.6f0914fd.svg)
     no-repeat 50%;
   background-size: 100%;
   cursor: pointer;
 
   @media screen and (min-width: 1024px) {
-    width: 149px;
-    height: 38px;
+    width: 118px;
+    height: 32px;
     margin: 0 20px 0 0;
   }
   @media screen and (max-width: 1023px) {
-    width: 119px;
-    height: 30px;
-    margin: 0 0 0 20px;
+    width: 77px;
+    height: 18px;
+    margin: 0 0 0 16px;
   }
 `;
