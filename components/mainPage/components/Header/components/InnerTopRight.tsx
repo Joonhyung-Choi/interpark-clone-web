@@ -43,12 +43,15 @@ const RightLi = styled.li<{ isFirstElemnet: boolean }>`
   align-items: center;
 `;
 
-const RightA = styled.a``;
+const RightA = styled.a`
+  cursor: pointer;
+`;
 
 const RightMypageButton = styled.button`
   background: none;
   padding: 0;
   border: none;
+  cursor: pointer;
   ::after {
     content: "";
     position: absolute;
