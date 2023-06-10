@@ -37,31 +37,42 @@ export default function EventSwiper() {
   ];
 
   return (
-    <StyledSwiper
-      modules={[Navigation]}
-      slidesPerView={2}
-      navigation
-      loop={true}
-      spaceBetween={24}
-      autoplay={{ delay: 3000 }}
-    >
-      {/* <StyledSwiper {...swiperOptions}></StyledSwiper> */}
-      {swiperImg.map((item, index) => (
-        <StyledSwiperSlide key={index}>
-          <SwiperA>
-            <StyledImage
-              src={item.src}
-              layout={"fill"}
-              alt={item.alt}
-            ></StyledImage>
-          </SwiperA>
-        </StyledSwiperSlide>
-      ))}
-    </StyledSwiper>
+    <SlideWrapper>
+      <NavigationButton className="custom-prev" buttonRole={"prev"}>
+        Previous
+      </NavigationButton>
+      <NavigationButton className="custom-next" buttonRole={"next"}>
+        Next
+      </NavigationButton>
+      <StyledSwiper
+        modules={[Navigation]}
+        slidesPerView={2}
+        navigation={{
+          prevEl: ".custom-prev",
+          nextEl: ".custom-next",
+        }}
+        loop={true}
+        spaceBetween={24}
+        autoplay={{ delay: 3000 }}
+      >
+        {swiperImg.map((item, index) => (
+          <StyledSwiperSlide key={index}>
+            <SwiperA>
+              <StyledImage
+                src={item.src}
+                layout={"fill"}
+                alt={item.alt}
+              ></StyledImage>
+            </SwiperA>
+          </StyledSwiperSlide>
+        ))}
+      </StyledSwiper>
+    </SlideWrapper>
   );
 }
 
 const StyledSwiper = styled(Swiper)`
+  position: relative;
   @media screen and (min-width: 1280px) {
     width: 1280px;
   }
@@ -73,8 +84,14 @@ const StyledSwiper = styled(Swiper)`
   }
 `;
 
+const SlideWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+`;
+
 const StyledSwiperSlide = styled(SwiperSlide)`
-  overflow: hidden;
   @media screen and (min-width: 1280px) {
     width: 628px;
     height: 345.31px;
@@ -98,4 +115,25 @@ const SwiperA = styled.a`
 
 const StyledImage = styled(Image)`
   border-radius: 14px;
+`;
+
+const NavigationButton = styled.button<{ buttonRole: "prev" | "next" }>`
+  z-index: 10;
+  display: flex;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-top: -15px;
+  width: 48px;
+  height: 48px;
+  background: hsla(0, 0%, 100%, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.13);
+  border-radius: 100px;
+  align-items: center;
+  justify-content: center;
+  font-size: 0;
+  cursor: pointer;
+  left: ${(props) => (props.buttonRole === "prev" ? "-23px" : "")};
+  right: ${(props) => (props.buttonRole === "next" ? "-23px" : "")};
 `;
