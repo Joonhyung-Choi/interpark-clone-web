@@ -1,8 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Navigation, Scrollbar } from "swiper";
+import { Navigation } from "swiper";
 import Image from "next/image";
+
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/scrollbar";
 
 export default function EventSwiper() {
   const swiperImg: { src: string; alt: string }[] = [
@@ -32,26 +36,24 @@ export default function EventSwiper() {
     },
   ];
 
-  const swiperOptions = {
-    direction: "horizontal",
-    loop: true,
-    autoplay: {
-      delay: 3000,
-    },
-  };
-
   return (
-    <StyledSwiper>
+    <StyledSwiper
+      modules={[Navigation]}
+      slidesPerView={2}
+      navigation
+      loop={true}
+      spaceBetween={24}
+      autoplay={{ delay: 3000 }}
+    >
       {/* <StyledSwiper {...swiperOptions}></StyledSwiper> */}
       {swiperImg.map((item, index) => (
         <StyledSwiperSlide key={index}>
           <SwiperA>
-            <Image
+            <StyledImage
               src={item.src}
-              width={500}
-              height={274.92}
+              layout={"fill"}
               alt={item.alt}
-            ></Image>
+            ></StyledImage>
           </SwiperA>
         </StyledSwiperSlide>
       ))}
@@ -60,7 +62,6 @@ export default function EventSwiper() {
 }
 
 const StyledSwiper = styled(Swiper)`
-  height: 100px;
   @media screen and (min-width: 1280px) {
     width: 1280px;
   }
@@ -73,9 +74,28 @@ const StyledSwiper = styled(Swiper)`
 `;
 
 const StyledSwiperSlide = styled(SwiperSlide)`
-  width: 500px;
-  border-radius: 14px;
   overflow: hidden;
+  @media screen and (min-width: 1280px) {
+    width: 628px;
+    height: 345.31px;
+  }
+  @media screen and (max-width: 1279px) and (min-width: 1024px) {
+    width: 500px;
+    height: 274.92px;
+  }
+  @media screen and (max-width: 1023px) {
+    width: 368px;
+    height: 202.34px;
+  }
 `;
 
-const SwiperA = styled.a``;
+const SwiperA = styled.a`
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+`;
+
+const StyledImage = styled(Image)`
+  border-radius: 14px;
+`;

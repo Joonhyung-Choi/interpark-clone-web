@@ -3,9 +3,12 @@ import styled from "styled-components";
 import Search from "./Search";
 
 export default function InnerTopLeft() {
+  const LOGOIMGURL =
+    "https://www.interpark.com/_next/static/media/ci.4836710e.svg";
+
   return (
     <HeaderInnerLeft>
-      <LeftLogoDiv />
+      <LeftLogoDiv url={LOGOIMGURL} />
       <Search role={"pc"}></Search>
     </HeaderInnerLeft>
   );
@@ -22,15 +25,14 @@ const HeaderInnerLeft = styled.div`
   }
 `;
 
-const LeftLogoDiv = styled.div`
-  background: url(https://www.interpark.com/_next/static/media/ci_ko.6f0914fd.svg)
-    no-repeat 50%;
+const LeftLogoDiv = styled.div<{ url: string }>`
+  background: url(${(props) => props.url}) no-repeat 50%;
   background-size: 100%;
   cursor: pointer;
 
   @media screen and (min-width: 1024px) {
-    width: 118px;
-    height: 32px;
+    width: 151px;
+    height: 38px;
     margin: 0 20px 0 0;
   }
   @media screen and (max-width: 1023px) {
