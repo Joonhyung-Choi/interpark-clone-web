@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import ContentsMain from "./components/EventContents";
+import EvnetContents from "./components/EventContents";
 
 export default function Contents() {
   return (
     <Wrapper>
-      <ContentsMain></ContentsMain>
+      <EvnetContents></EvnetContents>
     </Wrapper>
   );
 }

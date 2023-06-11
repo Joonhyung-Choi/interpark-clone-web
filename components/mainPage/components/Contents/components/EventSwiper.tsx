@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper";
+import { Navigation, Pagination } from "swiper";
 import Image from "next/image";
 
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/scrollbar";
+import "swiper/css/pagination";
 
 export default function EventSwiper() {
   const swiperImg: { src: string; alt: string }[] = [
@@ -37,41 +37,47 @@ export default function EventSwiper() {
   ];
 
   return (
-    <SwiperWrapper>
-      <NavigationButton className="custom-prev" buttonRole={"prev"}>
-        Previous
-      </NavigationButton>
-      <NavigationButton className="custom-next" buttonRole={"next"}>
-        Next
-      </NavigationButton>
-      <StyledSwiper
-        modules={[Navigation]}
-        slidesPerView={2}
-        navigation={{
-          prevEl: ".custom-prev",
-          nextEl: ".custom-next",
-        }}
-        loop={true}
-        spaceBetween={24}
-        autoplay={{ delay: 3000 }}
-      >
-        {swiperImg.map((item, index) => (
-          <StyledSwiperSlide key={index}>
-            <SwiperA>
-              <StyledImage
-                src={item.src}
-                layout={"fill"}
-                alt={item.alt}
-              ></StyledImage>
-            </SwiperA>
-          </StyledSwiperSlide>
-        ))}
-      </StyledSwiper>
-    </SwiperWrapper>
+    <Wrapper>
+      <NavigationButton className="custom-prev" buttonRole={"prev"} />
+      <NavigationButton className="custom-next" buttonRole={"next"} />
+      <SwiperWrapper>
+        <StyledSwiper
+          modules={[Navigation, Pagination]}
+          slidesPerView={2}
+          navigation={{
+            prevEl: ".custom-prev",
+            nextEl: ".custom-next",
+          }}
+          pagination={{
+            el: ".swiper-pagination",
+            clickable: true,
+            renderBullet: function (index, className) {
+              return `<span class="${className}"></span>`;
+            },
+          }}
+          loop={true}
+          spaceBetween={24}
+          autoplay={{ delay: 3000 }}
+        >
+          {swiperImg.map((item, index) => (
+            <StyledSwiperSlide key={index}>
+              <SwiperA>
+                <StyledImage
+                  src={item.src}
+                  layout={"fill"}
+                  alt={item.alt}
+                ></StyledImage>
+              </SwiperA>
+            </StyledSwiperSlide>
+          ))}
+        </StyledSwiper>
+        <PageinationDiv className="swiper-pagination"></PageinationDiv>
+      </SwiperWrapper>
+    </Wrapper>
   );
 }
 
-const SwiperWrapper = styled.div`
+const Wrapper = styled.div`
   position: relative;
   margin: auto;
   @media screen and (min-width: 1280px) {
@@ -84,6 +90,16 @@ const SwiperWrapper = styled.div`
     width: 760px;
   }
   overflow: visible;
+`;
+
+const SwiperWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  @media screen and (max-width: 1023px) {
+    height: 202.34;
+    padding-bottom: 15px;
+  }
 `;
 
 const StyledSwiper = styled(Swiper)`
@@ -137,6 +153,9 @@ const NavigationButton = styled.button<{ buttonRole: "prev" | "next" }>`
   cursor: pointer;
   left: ${(props) => (props.buttonRole === "prev" ? "-23px" : "")};
   right: ${(props) => (props.buttonRole === "next" ? "-23px" : "")};
+  @media screen and (max-width: 1023px) {
+    display: none;
+  }
   content: "";
   ::after {
     content: "";
@@ -146,5 +165,20 @@ const NavigationButton = styled.button<{ buttonRole: "prev" | "next" }>`
       no-repeat 50%;
     transform: ${(props) =>
       props.buttonRole === "prev" ? "rotate(180deg)" : ""};
+  }
+`;
+
+const PageinationDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 7px;
+  position: absolute;
+  bottom: 0;
+  .swiper-pagination-bullet {
+    background-color: black;
+    width: 7px;
+    height: 7px;
+    margin: 0 4px;
   }
 `;

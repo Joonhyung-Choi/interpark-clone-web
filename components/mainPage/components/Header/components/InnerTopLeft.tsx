@@ -36,8 +36,8 @@ const LeftLogoDiv = styled.div<{ url: string }>`
     margin: 0 20px 0 0;
   }
   @media screen and (max-width: 1023px) {
-    width: 77px;
-    height: 18px;
-    margin: 0 0 0 16px;
+    width: 119px;
+    height: 30px;
+    margin: 0 0 0 20px;
   }
 `;
