@@ -37,7 +37,7 @@ export default function EventSwiper() {
   ];
 
   return (
-    <SlideWrapper>
+    <SwiperWrapper>
       <NavigationButton className="custom-prev" buttonRole={"prev"}>
         Previous
       </NavigationButton>
@@ -67,12 +67,13 @@ export default function EventSwiper() {
           </StyledSwiperSlide>
         ))}
       </StyledSwiper>
-    </SlideWrapper>
+    </SwiperWrapper>
   );
 }
 
-const StyledSwiper = styled(Swiper)`
+const SwiperWrapper = styled.div`
   position: relative;
+  margin: auto;
   @media screen and (min-width: 1280px) {
     width: 1280px;
   }
@@ -82,13 +83,13 @@ const StyledSwiper = styled(Swiper)`
   @media screen and (max-width: 1023px) {
     width: 760px;
   }
+  overflow: visible;
 `;
 
-const SlideWrapper = styled.div`
+const StyledSwiper = styled(Swiper)`
   position: relative;
   width: 100%;
   height: 100%;
-  overflow: visible;
 `;
 
 const StyledSwiperSlide = styled(SwiperSlide)`
@@ -136,4 +137,14 @@ const NavigationButton = styled.button<{ buttonRole: "prev" | "next" }>`
   cursor: pointer;
   left: ${(props) => (props.buttonRole === "prev" ? "-23px" : "")};
   right: ${(props) => (props.buttonRole === "next" ? "-23px" : "")};
+  content: "";
+  ::after {
+    content: "";
+    width: 1.8rem;
+    height: 2.8rem;
+    background: url(https://www.interpark.com/_next/static/media/slider_arrow.d2fa00ea.svg)
+      no-repeat 50%;
+    transform: ${(props) =>
+      props.buttonRole === "prev" ? "rotate(180deg)" : ""};
+  }
 `;
