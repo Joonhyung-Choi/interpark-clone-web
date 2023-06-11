@@ -49,7 +49,7 @@ export default function EventSwiper() {
             nextEl: ".custom-next",
           }}
           pagination={{
-            el: ".swiper-pagination",
+            el: ".custom-pagination",
             clickable: true,
             renderBullet: function (index, className) {
               return `<span class="${className}"></span>`;
@@ -71,7 +71,7 @@ export default function EventSwiper() {
             </StyledSwiperSlide>
           ))}
         </StyledSwiper>
-        <PageinationDiv className="swiper-pagination"></PageinationDiv>
+        <PaginationDiv className="custom-pagination"></PaginationDiv>
       </SwiperWrapper>
     </Wrapper>
   );
@@ -98,7 +98,6 @@ const SwiperWrapper = styled.div`
   height: 100%;
   @media screen and (max-width: 1023px) {
     height: 202.34;
-    padding-bottom: 15px;
   }
 `;
 
@@ -168,13 +167,12 @@ const NavigationButton = styled.button<{ buttonRole: "prev" | "next" }>`
   }
 `;
 
-const PageinationDiv = styled.div`
+const PaginationDiv = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
   height: 7px;
-  position: absolute;
-  bottom: 0;
+  margin-top: 9px;
   .swiper-pagination-bullet {
     background-color: black;
     width: 7px;
