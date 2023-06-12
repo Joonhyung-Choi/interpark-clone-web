@@ -1,18 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import ContentsWrapper from "../ContentsWrapper";
-import EventSwiper from "./EventSwiper";
 import ContentsTitle from "../ContentsTitle";
-
-export default function EventContents() {
+export default function ShopingContents() {
   return (
     <ContentsWrapper>
       <ContentsTitle
-        title={"오늘의 픽"}
-        subTitle={"인터파크에서 할인혜택을 꼭 챙기세요."}
-        role={"EventContents"}
+        title={"쇼핑 추천"}
+        subTitle={"할인이 쎼다! 지금, 특가 상품을 확인하세요."}
+        role={"ShopingContents"}
       ></ContentsTitle>
-      <EventSwiper></EventSwiper>
     </ContentsWrapper>
   );
 }

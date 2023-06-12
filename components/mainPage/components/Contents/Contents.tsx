@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import EvnetContents from "./components/EventContents/EventContents";
-
+import EventContents from "./components/EventContents/EventContents";
+import ShopingContents from "./components/ShopingContents/ShopingContents";
 export default function Contents() {
   return (
     <Wrapper>
-      <EvnetContents></EvnetContents>
+      <EventContents />
+      <ShopingContents />
     </Wrapper>
   );
 }

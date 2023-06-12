@@ -1,17 +1,27 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function ContentsTitle() {
+type TitlePropsTypes = {
+  title: string;
+  subTitle: string;
+  role: string;
+};
+
+export default function ContentsTitle({
+  title,
+  subTitle,
+  role,
+}: TitlePropsTypes) {
   return (
-    <TitleWrapper>
-      <TitleH2>오늘의 픽</TitleH2>
-      <SubtitleP>인터파크에서 할인혜택을 꼭 챙기세요.</SubtitleP>
+    <TitleWrapper role={role}>
+      <TitleH2>{title}</TitleH2>
+      <SubtitleP>{subTitle}</SubtitleP>
     </TitleWrapper>
   );
 }
 
-const TitleWrapper = styled.div`
-  display: none;
+const TitleWrapper = styled.div<{ role: string }>`
+  display: ${(props) => (props.role === "EventContents" ? "none" : "block")};
   position: relative;
   width: 720px;
   height: 44px;
