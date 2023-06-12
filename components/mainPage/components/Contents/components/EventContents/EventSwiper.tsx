@@ -179,4 +179,7 @@ const PaginationDiv = styled.div`
     height: 7px;
     margin: 0 4px;
   }
+  @media screen and (min-width: 1024px) {
+    display: none;
+  }
 `;

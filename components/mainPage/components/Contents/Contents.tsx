@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import EvnetContents from "./components/EventContents";
+import EvnetContents from "./components/EventContents/EventContents";
 
 export default function Contents() {
   return (

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function EventTitle() {
+export default function ContentsTitle() {
   return (
     <TitleWrapper>
       <TitleH2>오늘의 픽</TitleH2>

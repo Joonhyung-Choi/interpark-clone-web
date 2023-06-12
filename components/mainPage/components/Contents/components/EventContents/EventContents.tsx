@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import EventSwiper from "./EventSwiper";
-import EventTitle from "./EventTitle";
+import ContentsTitle from "../ContentsTitle";
 export default function EventContents() {
   return (
     <Wrapper>
-      <EventTitle></EventTitle>
+      <ContentsTitle></ContentsTitle>
       <EventSwiper></EventSwiper>
     </Wrapper>
   );
