@@ -11,8 +11,8 @@ export default function EventContents() {
         title={"오늘의 픽"}
         subTitle={"인터파크에서 할인혜택을 꼭 챙기세요."}
         role={"EventContents"}
-      ></ContentsTitle>
-      <EventSwiper></EventSwiper>
+      />
+      <EventSwiper />
     </ContentsWrapper>
   );
 }
