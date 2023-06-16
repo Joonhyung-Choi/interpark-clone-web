@@ -18,9 +18,9 @@ export default function ShoppingSwiper() {
       <NavigationButton className="shopping-swiper-button-prev" />
       <NavigationButton className="shopping-swiper-button-next" />
       <SwiperWrapper>
-        {/* <StyledSwiper
+        <StyledSwiperPc
           modules={[Navigation, Pagination]}
-          slidesPerView={3}
+          slidesPerView={"auto"}
           slidesPerGroup={3}
           navigation={{
             prevEl: ".shopping-swiper-button-prev",
@@ -34,16 +34,17 @@ export default function ShoppingSwiper() {
               return `<span class="${className}"></span>`;
             },
           }}
-          spaceBetween={24}
+          spaceBetween={32}
         >
           {swiperImg.map((item, index) => (
             <StyledSwiperSlide key={index}>{item}</StyledSwiperSlide>
           ))}
-        </StyledSwiper> */}
-        <StyledSwiper
+        </StyledSwiperPc>
+        <StyledSwiperMobile
           modules={[Navigation, Pagination, Grid]}
           slidesPerView={"auto"}
           slidesPerGroup={3}
+          spaceBetween={10}
           grid={{
             rows: 2,
           }}
@@ -63,7 +64,7 @@ export default function ShoppingSwiper() {
           {swiperImg.map((item, index) => (
             <StyledSwiperSlide key={index}>{item}</StyledSwiperSlide>
           ))}
-        </StyledSwiper>
+        </StyledSwiperMobile>
         <PaginationDiv className="custom-pagination"></PaginationDiv>
       </SwiperWrapper>
     </Wrapper>
@@ -82,8 +83,7 @@ const Wrapper = styled.div`
   }
   @media screen and (max-width: 1023px) {
     width: 760px;
-    /* height: 460px; */
-    height: 500px;
+    height: 460px;
   }
   overflow: visible;
 
@@ -96,24 +96,37 @@ const SwiperWrapper = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
+
   @media screen and (max-width: 1023px) {
     height: 202.34;
   }
 `;
 
-const StyledSwiper = styled(Swiper)`
+const StyledSwiperPc = styled(Swiper)`
   position: relative;
   width: 100%;
   height: 100%;
+  @media screen and (max-width: 1023px) {
+    display: none;
+  }
+`;
 
-  /* display: flex;
-  flex-direction: column; */
+const StyledSwiperMobile = styled(Swiper)`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  @media screen and (min-width: 1024px) {
+    display: none;
+  }
 `;
 
 const StyledSwiperSlide = styled(SwiperSlide)`
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+
   @media screen and (min-width: 1280px) {
-    width: 320px;
-    height: 426px;
+    width: 300.5px;
+    height: 406.5px;
   }
   @media screen and (max-width: 1279px) and (min-width: 1024px) {
     width: 320px;

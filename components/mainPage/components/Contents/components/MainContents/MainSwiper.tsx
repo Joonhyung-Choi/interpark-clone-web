@@ -111,6 +111,7 @@ const StyledSwiper = styled(Swiper)`
 `;
 
 const StyledSwiperSlide = styled(SwiperSlide)`
+  position: relative;
   @media screen and (min-width: 1280px) {
     width: 628px;
     height: 345.31px;
