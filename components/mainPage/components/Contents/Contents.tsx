@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import EventContents from "./components/EventContents/EventContents";
-import ShopingContents from "./components/ShopingContents/ShopingContents";
+import EventContents from "./components/MainContents/MainContents";
+import ShopingContents from "./components/ShoppingContents/ShoppingContents";
 export default function Contents() {
   return (
     <Wrapper>

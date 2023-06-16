@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import ContentsWrapper from "../ContentsWrapper";
-import EventSwiper from "./EventSwiper";
+import EventSwiper from "./MainSwiper";
 import ContentsTitle from "../ContentsTitle";
 
-export default function EventContents() {
+export default function MainContents() {
   return (
     <ContentsWrapper>
       <ContentsTitle

@@ -1,14 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper";
+import { Autoplay, Pagination, Navigation } from "swiper";
+import NavigationButton from "../NavigationButton";
 import Image from "next/image";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-export default function EventSwiper() {
+export default function MainSwiper() {
   const swiperImg: { src: string; alt: string }[] = [
     {
       src: "https://openimage.interpark.com/dia/images/28/10/230531010/89a0ac18e539475e830daca908a8f501.jpg",
@@ -38,15 +39,15 @@ export default function EventSwiper() {
 
   return (
     <Wrapper>
-      <NavigationButton className="custom-prev" buttonRole={"prev"} />
-      <NavigationButton className="custom-next" buttonRole={"next"} />
+      <NavigationButton className="main-swiper-button-prev" />
+      <NavigationButton className="main-swiper-button-next" />
       <SwiperWrapper>
         <StyledSwiper
-          modules={[Navigation, Pagination]}
+          modules={[Navigation, Pagination, Autoplay]}
           slidesPerView={2}
           navigation={{
-            prevEl: ".custom-prev",
-            nextEl: ".custom-next",
+            prevEl: ".main-swiper-button-prev",
+            nextEl: ".main-swiper-button-next",
           }}
           pagination={{
             el: ".custom-pagination",
@@ -57,7 +58,9 @@ export default function EventSwiper() {
           }}
           loop={true}
           spaceBetween={24}
-          autoplay={{ delay: 3000 }}
+          autoplay={{
+            delay: 3000,
+          }}
         >
           {swiperImg.map((item, index) => (
             <StyledSwiperSlide key={index}>
@@ -131,40 +134,6 @@ const SwiperA = styled.a`
 
 const StyledImage = styled(Image)`
   border-radius: 14px;
-`;
-
-const NavigationButton = styled.button<{ buttonRole: "prev" | "next" }>`
-  z-index: 10;
-  display: flex;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  margin-top: -15px;
-  width: 48px;
-  height: 48px;
-  background: hsla(0, 0%, 100%, 0.9);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.13);
-  border-radius: 100px;
-  align-items: center;
-  justify-content: center;
-  font-size: 0;
-  cursor: pointer;
-  left: ${(props) => (props.buttonRole === "prev" ? "-23px" : "")};
-  right: ${(props) => (props.buttonRole === "next" ? "-23px" : "")};
-  @media screen and (max-width: 1023px) {
-    display: none;
-  }
-  content: "";
-  ::after {
-    content: "";
-    width: 1.8rem;
-    height: 2.8rem;
-    background: url(https://www.interpark.com/_next/static/media/slider_arrow.d2fa00ea.svg)
-      no-repeat 50%;
-    transform: ${(props) =>
-      props.buttonRole === "prev" ? "rotate(180deg)" : ""};
-  }
 `;
 
 const PaginationDiv = styled.div`

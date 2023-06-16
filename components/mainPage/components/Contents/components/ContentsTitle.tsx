@@ -20,14 +20,13 @@ export default function ContentsTitle({
   );
 }
 
-// 여기도 뷰포트 크기 따라서 크기가 달라지니까 반응형 작업 더 해야 함
-
 const TitleWrapper = styled.div<{ role: string }>`
   display: ${(props) => (props.role === "EventContents" ? "none" : "block")};
   position: relative;
   justify-content: center;
   padding: 0 20px;
-  @media screen and (max-width: 1280px) {
+
+  @media screen and (min-width: 1280px) {
     width: 1280px;
     height: 59px;
     margin-bottom: 20px;
@@ -42,7 +41,6 @@ const TitleWrapper = styled.div<{ role: string }>`
     width: 760px;
     height: 44px;
     margin-bottom: 12px;
-    /* display: flex; */
   }
 `;
 
