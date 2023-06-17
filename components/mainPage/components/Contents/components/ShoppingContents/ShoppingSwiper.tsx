@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation, Grid } from "swiper";
 import NavigationButton from "../NavigationButton";
 import Image from "next/image";
+import shoppingData from "../../../../../../data/shoppingData.json";
 
 import "swiper/css";
 import "swiper/css/grid";
@@ -11,8 +12,6 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 export default function ShoppingSwiper() {
-  const swiperImg: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-
   return (
     <Wrapper>
       <NavigationButton className="shopping-swiper-button-prev" />
@@ -20,30 +19,48 @@ export default function ShoppingSwiper() {
       <SwiperWrapper>
         <StyledSwiperPc
           modules={[Navigation, Pagination]}
-          slidesPerView={"auto"}
-          slidesPerGroup={3}
           navigation={{
             prevEl: ".shopping-swiper-button-prev",
             nextEl: ".shopping-swiper-button-next",
             disabledClass: "swiper-button-disabled",
           }}
-          pagination={{
-            el: ".custom-pagination",
-            clickable: true,
-            renderBullet: function (index, className) {
-              return `<span class="${className}"></span>`;
+          breakpoints={{
+            1024: {
+              slidesPerGroup: 3,
+              slidesPerView: 3,
+              spaceBetween: 32,
+            },
+            1280: {
+              slidesPerGroup: 4,
+              slidesPerView: 4,
+              spaceBetween: 26,
             },
           }}
-          spaceBetween={32}
         >
-          {swiperImg.map((item, index) => (
-            <StyledSwiperSlide key={index}>{item}</StyledSwiperSlide>
+          {shoppingData.map((item, index) => (
+            <StyledSwiperSlide key={index}>
+              <SwiperA>
+                <ProductImageDiv>
+                  <StyledImage
+                    src={item.src}
+                    layout={"fill"}
+                    alt="item"
+                  ></StyledImage>
+                </ProductImageDiv>
+                <ProductExplanationDiv>
+                  <PriceDiv>
+                    <DiscountP>{item.explanation.discount}</DiscountP>
+                    <PriceP>{item.explanation.price}</PriceP>원
+                  </PriceDiv>
+                  <ExplainDiv>{item.explanation.explain}</ExplainDiv>
+                </ProductExplanationDiv>
+              </SwiperA>
+            </StyledSwiperSlide>
           ))}
         </StyledSwiperPc>
         <StyledSwiperMobile
           modules={[Navigation, Pagination, Grid]}
           slidesPerView={"auto"}
-          slidesPerGroup={3}
           spaceBetween={10}
           grid={{
             rows: 2,
@@ -53,19 +70,29 @@ export default function ShoppingSwiper() {
             nextEl: ".shopping-swiper-button-next",
             disabledClass: "swiper-button-disabled",
           }}
-          pagination={{
-            el: ".custom-pagination",
-            clickable: true,
-            renderBullet: function (index, className) {
-              return `<span class="${className}"></span>`;
-            },
-          }}
         >
-          {swiperImg.map((item, index) => (
-            <StyledSwiperSlide key={index}>{item}</StyledSwiperSlide>
+          {shoppingData.map((item, index) => (
+            <StyledSwiperSlide key={index}>
+              <SwiperA>
+                <ProductImageDiv>
+                  <StyledImage
+                    src={item.src}
+                    width={150}
+                    height={150}
+                    alt="item"
+                  ></StyledImage>
+                </ProductImageDiv>
+                <ProductExplanationDiv>
+                  <PriceDiv>
+                    <DiscountP>{item.explanation.discount}</DiscountP>
+                    <PriceP>{item.explanation.price}원</PriceP>
+                  </PriceDiv>
+                  <ExplainDiv>{item.explanation.explain}</ExplainDiv>
+                </ProductExplanationDiv>
+              </SwiperA>
+            </StyledSwiperSlide>
           ))}
         </StyledSwiperMobile>
-        <PaginationDiv className="custom-pagination"></PaginationDiv>
       </SwiperWrapper>
     </Wrapper>
   );
@@ -115,12 +142,14 @@ const StyledSwiperMobile = styled(Swiper)`
   position: relative;
   width: 100%;
   height: 100%;
+  padding: 0 20px;
   @media screen and (min-width: 1024px) {
     display: none;
   }
 `;
 
 const StyledSwiperSlide = styled(SwiperSlide)`
+  position: relative;
   border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 12px;
 
@@ -136,6 +165,16 @@ const StyledSwiperSlide = styled(SwiperSlide)`
     width: 150px;
     height: 225px;
   }
+  ::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 12px;
+  }
 `;
 
 const SwiperA = styled.a`
@@ -146,22 +185,86 @@ const SwiperA = styled.a`
 `;
 
 const StyledImage = styled(Image)`
-  border-radius: 14px;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
 `;
 
-const PaginationDiv = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 7px;
-  margin-top: 9px;
-  .swiper-pagination-bullet {
-    background-color: black;
-    width: 7px;
-    height: 7px;
-    margin: 0 4px;
+const ProductImageDiv = styled.div`
+  position: relative;
+  @media screen and (min-width: 1280px) {
+    width: 300.5px;
+    height: 300.5px;
   }
-  @media screen and (min-width: 1024px) {
-    display: none;
+  @media screen and (min-width: 1024px) and (max-width: 1279px) {
+    width: 320px;
+    height: 320px;
+  }
+  @media screen and (max-width: 1023) {
+    width: 150px;
+    height: 150px;
+  }
+`;
+
+const ProductExplanationDiv = styled.div`
+  position: relative;
+  padding: 20px;
+  height: 106px;
+  @media screen and (min-width: 1280px) {
+    width: 300.5px;
+  }
+  @media screen and (min-width: 1024px) and (max-width: 1279px) {
+    width: 320px;
+  }
+  @media screen and (max-width: 1023px) {
+    padding: 10px 12px 12px 12px;
+    width: 150px;
+    height: 75px;
+  }
+`;
+
+const PriceDiv = styled.div`
+  display: flex;
+  width: 100%;
+  height: 24px;
+  font-size: 20px;
+  line-height: 24px;
+  @media screen and (max-width: 1023px) {
+    height: 18px;
+    line-height: 18px;
+    font-size: 15px;
+  }
+`;
+
+const DiscountP = styled.p`
+  color: #ef3e43;
+  display: block;
+  margin-right: 2px;
+  font-size: 100%;
+  line-height: 100%;
+  font-weight: 700;
+`;
+const PriceP = styled.p`
+  font-size: 100%;
+  line-height: 100%;
+  font-weight: 700;
+`;
+
+const ExplainDiv = styled.div`
+  width: 100%;
+  height: 36px;
+  margin-top: 6px;
+  font-size: 15px;
+  line-height: 18px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+
+  @media screen and (max-width: 1023px) {
+    margin-top: 3px;
+    height: 32px;
+    font-size: 13px;
+    line-height: 16px;
   }
 `;
