@@ -1,9 +1,3 @@
-// 받아올 props
-// 고유한 버튼의 이름 값
-// 현재 tab의 state값
-// getState 함수
-// 고유한 버튼 이름 === state면 검은색으로 출력
-
 import React, { ReactNode } from "react";
 import styled from "styled-components";
 
