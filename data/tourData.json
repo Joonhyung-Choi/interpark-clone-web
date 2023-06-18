@@ -1,0 +1,82 @@
+[
+    {
+        "src" : "https://tourimage.interpark.com/product/tour/00161/A10/500/A1034124_5_363.jpg",
+        "explanation" : {
+            "event" : "올인클루시브/주류무제한",
+            "productName" : "[초신상/셀렉텀노아/올인클루시브] 나트랑 자유여행 3박",
+            "price" : "683,050"
+        }
+    },
+    {
+        "src" : "https://i.travelapi.com/hotels/12000000/11990000/11980100/11980032/184ef9fb_z.jpg",
+        "explanation" : {
+            "event" : "★6/16~18일특가★몰 오브 아시아와 바로 연결!",
+            "productName" : "콘래드 마닐라",
+            "price" : "213,816"
+        }
+    },
+    {
+        "src" : "https://i.travelapi.com/hotels/5000000/4620000/4613300/4613201/5f05f40c_z.jpg",
+        "explanation" : {
+            "event" : "80일간 세계일주 동남아 호텔 특가!",
+            "productName" : "이스틴 그랜드 호텔 사톤",
+            "price" : "143,415"
+        }
+    },
+    {
+        "src" : "https://i.travelapi.com/hotels/41000000/40230000/40226000/40225944/3748b2ba_z.jpg",
+        "explanation" : {
+            "event" : "모알보알호핑+마사지까지!",
+            "productName" : "[대구-세부 5일]솔레아 오슬롭고래상어+투말록폭포",
+            "price" : "569,050"
+        }
+    },
+    {
+        "src" : "https://i.travelapi.com/hotels/1000000/10000/2200/2120/226f8c96_z.jpg",
+        "explanation" : {
+            "event" : "80일간 세계일주 동남아 호텔 특가!",
+            "productName" : "아난타라 리버사이드 방콕 리조트",
+            "price" : "177,784"
+        }
+    },
+    {
+        "src" : "https://tourimage.interpark.com/product/tour/00161/A10/500/A1033205_1_203.jpg",
+        "explanation" : {
+            "event" : "4인이상 예약시 단독풀빌라 업그레이드!",
+            "productName" : "[푸꾸옥 자유 5일] 5성 빈펄리조트+올인클루시브+빈원더스",
+            "price" : "989,000"
+        }
+    },
+    {
+        "src" : "https://tourimage.interpark.com/product/tour/00161/A10/500/A1033849_3_783.jpg",
+        "explanation" : {
+            "event" : "★6/16~18일특가★호핑투어OR마사지1시간 택1!",
+            "productName" : "[보홀] 가족여행 추천! 헤난 (타왈라) 리조트 4일/5일/6일",
+            "price" : "600,400"
+        }
+    },
+    {
+        "src" : "https://i.travelapi.com/hotels/1000000/90000/81100/81071/eb1a7886_z.jpg",
+        "explanation" : {
+            "event" : "80일간 세계일주 동남아 호텔 특가!",
+            "productName" : "더 페닌슐라 방콕",
+            "price" : "320,280"
+        }
+    },
+    {
+        "src" : "https://i.travelapi.com/hotels/1000000/10000/2200/2120/226f8c96_z.jpg",
+        "explanation" : {
+            "event" : "초강력특가★업그레이드",
+            "productName" : "서머셋 제주신화월드",
+            "price" : "199,000"
+        }
+    },
+    {
+        "src" : "https://tourimage.interpark.com/product/tour/00161/A10/500/A1034300_2_127.jpg",
+        "explanation" : {
+            "event" : "마사지+럭셔리힐링요트+핫플 일정",
+            "productName" : "[부산출발] ★NO팁NO옵션★ 방콕파타야 3박5일",
+            "price" : "616,550"
+        }
+    }
+]

@@ -1,21 +1,20 @@
 import React, { useState } from "react";
-
 import TabWrapper from "../TabWrapper";
 import TabButton from "../TabButton";
-import shoppingTabList from "../../../../../../data/shoppingTabList.json";
+import tourTabList from "../../../../../../data/tourTabList.json";
 
-export default function ShoppingTab() {
-  const [tabState, setTabState] = useState<string>("쎈딜");
+export default function TourTab() {
+  const [tabState, setTabState] = useState<string>("1등특가");
   const getTabState = (newTabState: string) => {
     setTabState(newTabState);
   };
 
   return (
     <TabWrapper>
-      {shoppingTabList.map((item, index) => (
+      {tourTabList.map((item, index) => (
         <TabButton
           key={index}
-          isLastButton={shoppingTabList.length === index + 1 ? true : false}
+          isLastButton={tourTabList.length === index + 1 ? true : false}
           tabState={tabState}
           getTabState={getTabState}
         >
