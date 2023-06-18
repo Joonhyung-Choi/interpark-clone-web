@@ -16,13 +16,15 @@ export default function TicketSwiper() {
       <NavigationButton className="tour-swiper-button-prev" />
       <NavigationButton className="tour-swiper-button-next" />
       <SwiperWrapper>
-        <StyledSwiperPc
+        <StyledSwiper
           modules={[Navigation]}
           navigation={{
             prevEl: ".tour-swiper-button-prev",
             nextEl: ".tour-swiper-button-next",
             disabledClass: "swiper-button-disabled",
           }}
+          slidesPerView={"auto"}
+          spaceBetween={10}
           breakpoints={{
             1024: {
               slidesPerGroup: 3,
@@ -65,7 +67,7 @@ export default function TicketSwiper() {
               </SwiperA>
             </StyledSwiperSlide>
           ))}
-        </StyledSwiperPc>
+        </StyledSwiper>
       </SwiperWrapper>
     </Wrapper>
   );
@@ -83,7 +85,7 @@ const Wrapper = styled.div`
   }
   @media screen and (max-width: 1023px) {
     width: 760px;
-    height: 460px;
+    height: 316px;
   }
   overflow: visible;
 
@@ -98,17 +100,15 @@ const SwiperWrapper = styled.div`
   height: 100%;
 
   @media screen and (max-width: 1023px) {
-    height: 202.34;
+    height: 100%;
+    margin-bottom: 5px;
   }
 `;
 
-const StyledSwiperPc = styled(Swiper)`
+const StyledSwiper = styled(Swiper)`
   position: relative;
   width: 100%;
   height: 100%;
-  @media screen and (max-width: 1023px) {
-    display: none;
-  }
 `;
 
 const StyledSwiperSlide = styled(SwiperSlide)`
@@ -119,21 +119,11 @@ const StyledSwiperSlide = styled(SwiperSlide)`
     height: 556px;
   }
   @media screen and (max-width: 1279px) and (min-width: 1024px) {
-    height: 354.7px;
+    height: 556px;
   }
   @media screen and (max-width: 1023px) {
-    width: 230px;
-    height: 219.5px;
-  }
-  ::before {
-    content: "";
-    display: block;
-    position: absolute;
-    z-index: 2;
-    width: 100%;
-    height: 100%;
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    border-radius: 12px;
+    width: 150px;
+    height: 316px;
   }
 `;
 
@@ -182,6 +172,13 @@ const ProductImageDiv = styled.div<{ rank: number }>`
     line-height: 83.5px;
     color: #fff;
     font-weight: 700;
+    @media screen and (max-width: 1023px) {
+      position: absolute;
+      left: 12px;
+      bottom: 7px;
+      font-size: 38px;
+      line-height: 45px;
+    }
   }
 `;
 
@@ -204,14 +201,16 @@ const ProductNameDiv = styled.div`
   color: #333;
   font-size: 18px;
   font-weight: bold;
+  overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
-  overflow: hidden;
+
   @media screen and (max-width: 1023px) {
-    height: 15.5px;
-    font-size: 13px;
+    width: 150px;
+    line-height: 18px;
+    font-size: 15px;
   }
 `;
 
@@ -225,6 +224,11 @@ const ProductPlaceDiv = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   color: #666;
+  @media screen and (max-width: 1023px) {
+    width: 150px;
+    line-height: 16px;
+    font-size: 13px;
+  }
 `;
 
 const ProductDurationDiv = styled.div`
@@ -235,8 +239,9 @@ const ProductDurationDiv = styled.div`
   line-height: 17px;
   color: #999;
   @media screen and (max-width: 1023px) {
-    height: 18px;
-    font-size: 14px;
+    width: 150px;
+    height: 14px;
+    font-size: 12px;
   }
 `;
 
@@ -262,4 +267,10 @@ const ProductBadgeDiv = styled.div<{ badge: string }>`
     }
   }};
   width: 57px;
+  @media screen and (max-width: 1023px) {
+    padding: 0 5px;
+    width: 47px;
+    height: 15px;
+    font-size: 10px;
+  }
 `;
