@@ -45,7 +45,7 @@ export default function InnerBottomNav() {
                 width={23}
                 height={15}
                 alt=""
-                isBadgeElement={index === 5 ? true : false}
+                isbadgeelement={index === navItems.length - 1}
               ></NavBadgeImage>
             </NavA>
           </NavLi>
@@ -117,8 +117,8 @@ const MobileNavImage = styled(Image)`
     display: none;
   }
 `;
-const NavBadgeImage = styled(Image)<{ isBadgeElement: boolean }>`
-  display: ${(props) => (props.isBadgeElement === true ? "" : "none")};
+const NavBadgeImage = styled(Image)<{ isbadgeelement: boolean }>`
+  display: ${(props) => (props.isbadgeelement === true ? "" : "none")};
   margin: 0 0 0 4px;
   @media screen and (max-width: 1023px) {
     position: absolute;

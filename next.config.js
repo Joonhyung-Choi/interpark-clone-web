@@ -9,6 +9,7 @@ const nextConfig = {
       "i.travelapi.com",
       "tourimage.interpark.com",
       "trimg.interpark.com",
+      "ticketimage.interpark.com",
     ],
   },
 };

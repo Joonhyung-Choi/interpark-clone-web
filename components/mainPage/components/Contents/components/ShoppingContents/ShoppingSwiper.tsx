@@ -42,7 +42,7 @@ export default function ShoppingSwiper() {
                 <ProductImageDiv>
                   <StyledImage
                     src={item.src}
-                    layout={"fill"}
+                    fill={true}
                     alt="item"
                   ></StyledImage>
                 </ProductImageDiv>
@@ -256,6 +256,5 @@ const ExplainDiv = styled.div`
     height: 32px;
     font-size: 13px;
     line-height: 16px;
-
   }
 `;

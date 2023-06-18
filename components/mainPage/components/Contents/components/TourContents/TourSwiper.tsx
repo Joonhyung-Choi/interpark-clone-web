@@ -42,7 +42,7 @@ export default function TourSwiper() {
                 <ProductImageDiv>
                   <StyledImage
                     src={item.src}
-                    layout={"fill"}
+                    fill={true}
                     alt="item"
                   ></StyledImage>
                 </ProductImageDiv>

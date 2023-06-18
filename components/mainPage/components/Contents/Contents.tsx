@@ -3,6 +3,7 @@ import styled from "styled-components";
 import EventContents from "./components/MainContents/MainContents";
 import ShopingContents from "./components/ShoppingContents/ShoppingContents";
 import TourContents from "./components/TourContents/TourContents";
+import TicketContents from "./components/TicketContents/TicketContents";
 
 export default function Contents() {
   return (
@@ -10,6 +11,7 @@ export default function Contents() {
       <EventContents />
       <ShopingContents />
       <TourContents />
+      <TicketContents />
     </Wrapper>
   );
 }

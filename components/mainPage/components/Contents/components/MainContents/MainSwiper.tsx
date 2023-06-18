@@ -41,7 +41,7 @@ export default function MainSwiper() {
               <SwiperA>
                 <StyledImage
                   src={item.src}
-                  layout={"fill"}
+                  fill={true}
                   alt={item.alt}
                 ></StyledImage>
               </SwiperA>
